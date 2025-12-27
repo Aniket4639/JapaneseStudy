@@ -17,9 +17,9 @@ export default function Home() {
         />
       </div>
       <DetailsCard />
-      <text className="flex w-full px-2 md:px-0 py-2 justify-center bg-gray-300 text-black text-lg font-semibold">
+      <p className="flex w-full px-2 md:px-0 py-2 justify-center bg-gray-300 text-black text-lg italic">
         Trusted by over 1,000+ active learners and growing.
-      </text>
+      </p>
     </div>
   );
 }

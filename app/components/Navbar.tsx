@@ -1,11 +1,13 @@
 "use client";
 import { GraduationCap, Menu } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { routes } from "../navigation/routes";
 
 export default function Navbar() {
   const [isDrawerIconOpen, setIsDrawerIconOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -17,13 +19,34 @@ export default function Navbar() {
           <text className="text-black text-2xl font-bold">Japanese Study</text>
         </Link>
         <div className="hidden md:flex flex-row items-center gap-8">
-          <Link href={routes.courses} className="text-black text-xl">
+          <Link
+            href={routes.courses}
+            className={`text-xl ${
+              pathname === routes.courses
+                ? "text-blue-600 font-bold border-b-2 border-blue-600"
+                : "text-black"
+            }`}
+          >
             Courses
           </Link>
-          <Link href={routes.blog} className="text-black text-xl">
+          <Link
+            href={routes.blog}
+            className={`text-xl ${
+              pathname === routes.blog
+                ? "text-blue-600 font-bold border-b-2 border-blue-600"
+                : "text-black"
+            }`}
+          >
             Blog
           </Link>
-          <Link href={routes.pricing} className="text-black text-xl">
+          <Link
+            href={routes.pricing}
+            className={`text-xl ${
+              pathname === routes.pricing
+                ? "text-blue-600 font-bold border-b-2 border-blue-600"
+                : "text-black"
+            }`}
+          >
             Pricing
           </Link>
         </div>
@@ -33,7 +56,7 @@ export default function Navbar() {
           </Link>
           <Link
             href={routes.signup}
-            className="flex bg-blue-600 text-white p-2 rounded-lg text-lg"
+            className="flex bg-blue-600 text-white p-1 rounded-lg text-lg"
           >
             Sign Up
           </Link>
@@ -48,15 +71,34 @@ export default function Navbar() {
       </div>
       {isDrawerIconOpen && (
         <div className="flex md:hidden flex-col w-full bg-white gap-3 px-6 py-4">
-          <Link href={routes.courses} className="text-black text-xl">
+          <Link
+            href={routes.courses}
+            className={`text-xl ${
+              pathname === routes.courses
+                ? "text-blue-600 font-bold"
+                : "text-black"
+            }`}
+          >
             Courses
           </Link>
           <hr />
-          <Link href={routes.blog} className="text-black text-xl">
+          <Link
+            href={routes.blog}
+            className={`text-xl ${
+              pathname === routes.blog ? "text-blue-600 font-bold" : "text-black"
+            }`}
+          >
             Blog
           </Link>
           <hr />
-          <Link href={routes.pricing} className="text-black text-xl">
+          <Link
+            href={routes.pricing}
+            className={`text-xl ${
+              pathname === routes.pricing
+                ? "text-blue-600 font-bold"
+                : "text-black"
+            }`}
+          >
             Pricing
           </Link>
           <hr />
